@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  frontend:
+    command: npm run start
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+    environment:
+      - WATCHPACK_POLLING=true
+
+  api:
+    command: npm run dev
+    volumes:
+      - ./api/src:/usr/src/app/src
